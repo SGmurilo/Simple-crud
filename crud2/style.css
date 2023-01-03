@@ -1,0 +1,52 @@
+body{
+    background-image: linear-gradient(45deg, black, blueviolet) ;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+   
+}
+
+.container{
+    display: flex;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex-direction: column;
+    
+}
+
+.form{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+.btn{
+   display: flex;
+   flex-direction: column;
+   align-self: center;
+   
+
+}
+button{
+    width: 12em;
+    height: 2em;
+    font-weight: bolder;
+    margin-top: 5px;
+    
+}
+input{
+    width: 14em;
+    height: 2em;
+    
+
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 5px;
+}
