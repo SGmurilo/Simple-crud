@@ -1,18 +1,20 @@
 
 class List{
     constructor(){
-        this.obj = {};
         this.array = [];
 
     }
 
     save(){
+        this.obj = {}
 
         const student = this.getData(this.obj);
         const objStudent = this.insertMedia(student);
         const studentData = this.insertStatus(objStudent);
 
-        console.log(studentData);
+        if(this.verifyData(studentData)){
+            this.insertArray(studentData);
+        }
 
 
     }
@@ -58,8 +60,38 @@ class List{
 
     }
 
-    verifyData(){
+    verifyData(obj){
+
+        const values = Object.values(obj);
+
+        var verify = true
+
+        for(var i = 0; i < values.length; i++){
+          
+            if(values[i] == ""){
+                verify = false   
+            };
+
+         
+        }
+
+        if(verify == false){
+            alert("Preencha os campos abaixo.");
+        }
+
+
+        return verify
+
+        
+    }
+
+    insertArray(obj){
+
+    this.array.push(obj);
+
+    console.log(this.array);
 
     }
+
 }
 const list = new List();
