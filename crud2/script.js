@@ -14,7 +14,12 @@ class List{
 
         if(this.verifyData(studentData)){
             this.insertArray(studentData);
+
+            this.insertTable(studentData);
+
+
         }
+      
 
 
     }
@@ -39,7 +44,11 @@ class List{
 
         const calcMedia = (semester1+semester2) /2;
 
-        obj.avg = calcMedia;
+        obj.avg = JSON.stringify(calcMedia);
+
+
+
+        
 
         return obj;
 
@@ -91,6 +100,43 @@ class List{
 
     console.log(this.array);
 
+    }
+
+    insertTable(obj){
+
+        const tbody = document.getElementById("tbody");
+        
+        const qtdLine = tbody.rows.length;
+        const line = tbody.insertRow(qtdLine);
+        
+        const imgDel = document.createElement("img");
+        imgDel.src = "./trash.png";
+
+        
+        
+
+        const name = obj.name
+        const semester1 = obj.semester1;
+        const semester2 = obj.semester2;
+        const avg = obj.avg;
+        const status = obj.status;
+
+
+
+
+        line.insertCell(0).innerHTML = qtdLine;
+        line.insertCell(1).innerHTML = name;
+        line.insertCell(2).innerHTML = semester1;
+        line.insertCell(3).innerHTML = semester2;
+        line.insertCell(4).innerHTML = avg;
+        line.insertCell(5).innerHTML = status;
+        line.insertCell(6).innerHTML = imgDel;
+
+
+        
+
+
+        
     }
 
 }

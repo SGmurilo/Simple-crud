@@ -50,3 +50,10 @@ input{
     margin-bottom: 15px;
     gap: 5px;
 }
+table {
+    margin: 30px;
+    color: black;
+    background-color: #ccc;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
