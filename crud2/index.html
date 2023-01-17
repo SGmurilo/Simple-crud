@@ -23,18 +23,18 @@
             </label>
 
             <label class="label">
-                <input id="semester1" type="number" class="campos" placeholder="Nota do semestre 1">
+                <input id="semester1" max="10" min="0" type="number" class="campos" placeholder="Nota do semestre 1">
             </label>
 
             <label class="label">
-                <input id="semester2" type="number" class="campos" placeholder="Nota do semestre 2">
+                <input id="semester2" max="10" min="0" type="number" class="campos" placeholder="Nota do semestre 2">
             </label>
 
             </div>
 
             <div class="btn">
                 <button onclick="list.save()">Salvar</button>
-                <button>Cancelar</button>
+                <button onclick="list.cancel()">Cancelar</button>
                 <button>Armazenar lista</button>
                 <button>Recuperar lista</button>
             </div>
