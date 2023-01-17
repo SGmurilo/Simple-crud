@@ -104,38 +104,34 @@ class List{
 
     insertTable(obj){
 
-        const tbody = document.getElementById("tbody");
-        
-        const qtdLine = tbody.rows.length;
-        const line = tbody.insertRow(qtdLine);
-        
-        const imgDel = document.createElement("img");
-        imgDel.src = "./trash.png";
+    const tbody = document.getElementById("tbody");
+    const tr = tbody.insertRow();
+    const qtdR = tbody.rows.length;
 
-        
-        
+    const imgDel = document.createElement("img");
+    imgDel.src = "img/trash.png";
 
-        const name = obj.name
-        const semester1 = obj.semester1;
-        const semester2 = obj.semester2;
-        const avg = obj.avg;
-        const status = obj.status;
+    const imgEdit = document.createElement("img");
+    imgEdit.src = "img/edit (2).png";
 
+    const id = tr.insertCell();
+    const name = tr.insertCell();
+    const semester1 = tr.insertCell();
+    const semester2 = tr.insertCell();
+    const avg = tr.insertCell();
+    const status = tr.insertCell();
+    const acoes = tr.insertCell();
 
+    acoes.appendChild(imgDel);
+    acoes.appendChild(imgEdit);
+    
 
-
-        line.insertCell(0).innerHTML = qtdLine;
-        line.insertCell(1).innerHTML = name;
-        line.insertCell(2).innerHTML = semester1;
-        line.insertCell(3).innerHTML = semester2;
-        line.insertCell(4).innerHTML = avg;
-        line.insertCell(5).innerHTML = status;
-        line.insertCell(6).innerHTML = imgDel;
-
-
-        
-
-
+    id.innerText = qtdR
+    name.innerText = obj.name;
+    semester1.innerText = obj.semester1;
+    semester2.innerText = obj.semester2;
+    avg.innerText = obj.avg;
+    status.innerText = obj.status;
         
     }
 

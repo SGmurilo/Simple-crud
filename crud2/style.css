@@ -51,9 +51,8 @@ input{
     gap: 5px;
 }
 table {
-    margin: 30px;
-    color: black;
+    margin-top: 20px;
     background-color: #ccc;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
 
 }
