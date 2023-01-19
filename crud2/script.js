@@ -169,7 +169,25 @@ class List{
 
     delete(id){
 
-        console.log(id);
+        // const tbody = document.getElementById("tbody");
+       
+        
+
+        // const lines = document.querySelectorAll("tr");
+        // const line = lines[id];
+        // console.log(line);
+        
+        // const del = tbody.deleteRow(line);
+
+        // this.array.splice();
+
+
+        // console.log(this.array)
+
+
+        
+    
+
     }
 
     cancel(){
