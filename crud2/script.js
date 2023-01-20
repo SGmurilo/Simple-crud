@@ -8,6 +8,8 @@ class List{
     save(){
         this.obj = {}
 
+        this.index ;
+
         const student = this.getData(this.obj);
 
         if(student){
@@ -23,6 +25,9 @@ class List{
 
         }
         this.cancel();
+        
+
+        
         }
 
         // this.cancel();
@@ -128,7 +133,12 @@ class List{
 
     this.array.push(obj);
 
-    console.log(this.array);
+    const ind = this.array.indexOf(obj);
+
+    obj.index = ind
+
+    this.index = ind
+
 
     }
 
@@ -138,13 +148,6 @@ class List{
     const tr = tbody.insertRow();
     const qtdR = tbody.rows.length;
 
-    const imgDel = document.createElement("img");
-    imgDel.src = "img/trash.png";
-    imgDel.setAttribute("onclick", "list.delete("+ qtdR +")");
-
-    const imgEdit = document.createElement("img");
-    imgEdit.src = "img/edit (2).png";
-    imgEdit.setAttribute("onclick", "list.delete(qtdR)");
 
     const id = tr.insertCell();
     const name = tr.insertCell();
@@ -154,35 +157,49 @@ class List{
     const status = tr.insertCell();
     const acoes = tr.insertCell();
 
-    acoes.appendChild(imgDel);
-    acoes.appendChild(imgEdit);
-    
-
     id.innerText = qtdR
     name.innerText = obj.name;
     semester1.innerText = obj.semester1;
     semester2.innerText = obj.semester2;
     avg.innerText = obj.avg;
     status.innerText = obj.status;
-        
+
+    const imgDel = document.createElement("img");
+    imgDel.src = "img/trash.png";
+    imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[this.index])+")");
+
+    const imgEdit = document.createElement("img");
+    imgEdit.src = "img/edit (2).png";
+    imgEdit.setAttribute("onclick", "list.delete(qtdR)");
+
+    acoes.appendChild(imgDel);
+    acoes.appendChild(imgEdit);
+    
+
     }
 
-    delete(id){
+    delete(obj1){
 
-        // const tbody = document.getElementById("tbody");
+        
+
+        const tbody = document.getElementById("tbody");
        
+        const lines = document.querySelectorAll("tr");
+
+        const index = obj1.index+1;
+
+        const del = lines.deleteRow(index);
+       
+
+
         
 
-        // const lines = document.querySelectorAll("tr");
-        // const line = lines[id];
-        // console.log(line);
         
-        // const del = tbody.deleteRow(line);
-
-        // this.array.splice();
 
 
-        // console.log(this.array)
+
+        
+      
 
 
         
