@@ -8,7 +8,7 @@ class List{
     save(){
         this.obj = {}
 
-        this.index ;
+        // this.index ;
 
         const student = this.getData(this.obj);
 
@@ -133,76 +133,83 @@ class List{
 
     this.array.push(obj);
 
-    const ind = this.array.indexOf(obj);
-
-    obj.index = ind
-
-    this.index = ind
 
 
     }
 
     insertTable(obj){
 
-    const tbody = document.getElementById("tbody");
-    const tr = tbody.insertRow();
-    const qtdR = tbody.rows.length;
+    
+    var tbody = document.getElementById("tbody");
+    // const tr = tbody.insertRow();
+    
+
+    var idSequence = 0;
+
+    
+    for (var i = 0; i < this.array.length ; i++){
+        
+        const tr = tbody.insertRow();
 
 
-    const id = tr.insertCell();
-    const name = tr.insertCell();
-    const semester1 = tr.insertCell();
-    const semester2 = tr.insertCell();
-    const avg = tr.insertCell();
-    const status = tr.insertCell();
-    const acoes = tr.insertCell();
+        // const id = tr.insertCell;
+        // const name = tr.insertCell;
+        // const semester1 = tr.insertCell;
+        // const semester2 = tr.insertCell;
+        // const avg = tr.insertCell;
+        // const status = tr.insertCell;
+        // const acoes = tr.insertCell;
 
-    id.innerText = qtdR
-    name.innerText = obj.name;
-    semester1.innerText = obj.semester1;
-    semester2.innerText = obj.semester2;
-    avg.innerText = obj.avg;
-    status.innerText = obj.status;
+        tr.insertCell(0).innerText = idSequence;
+        tr.insertCell(1).innerText = this.array[i].name;
+        tr.insertCell(2).innerText = this.array[i].semester1;
+        tr.insertCell(3).innerText = this.array[i].semester2;
+        tr.insertCell(4).innerText = this.array[i].avg;
+        tr.insertCell(5).innerText = this.array[i].status;
+        
+        idSequence++;
 
-    const imgDel = document.createElement("img");
-    imgDel.src = "img/trash.png";
-    imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[this.index])+")");
 
-    const imgEdit = document.createElement("img");
-    imgEdit.src = "img/edit (2).png";
-    imgEdit.setAttribute("onclick", "list.delete(qtdR)");
+        
+        
+    }
 
-    acoes.appendChild(imgDel);
-    acoes.appendChild(imgEdit);
+    
+
+
+
+    // const id = tr.insertCell();
+    // const name = tr.insertCell();
+    // const semester1 = tr.insertCell();
+    // const semester2 = tr.insertCell();
+    // const avg = tr.insertCell();
+    // const status = tr.insertCell();
+    // const acoes = tr.insertCell();
+
+    // id.innerText = qtdR
+    // name.innerText = obj.name;
+    // semester1.innerText = obj.semester1;
+    // semester2.innerText = obj.semester2;
+    // avg.innerText = obj.avg;
+    // status.innerText = obj.status;
+
+    // const imgDel = document.createElement("img");
+    // imgDel.src = "img/trash.png";
+    // imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[this.index])+")");
+
+    // const imgEdit = document.createElement("img");
+    // imgEdit.src = "img/edit (2).png";
+    // imgEdit.setAttribute("onclick", "list.delete(qtdR)");
+
+    // acoes.appendChild(imgDel);
+    // acoes.appendChild(imgEdit);
     
 
     }
 
-    delete(obj1){
-
+    delete(obj){
         
 
-        const tbody = document.getElementById("tbody");
-       
-        const lines = document.querySelectorAll("tr");
-
-        const index = obj1.index+1;
-
-        const del = lines.deleteRow(index);
-       
-
-
-        
-
-        
-
-
-
-        
-      
-
-
-        
     
 
     }
