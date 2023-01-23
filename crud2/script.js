@@ -6,7 +6,8 @@ class List{
     }
 
     save(){
-        this.obj = {}
+        this.obj = {};
+        this.id = 1;
 
         // this.index ;
 
@@ -139,18 +140,19 @@ class List{
 
     insertTable(obj){
 
-    
-    var tbody = document.getElementById("tbody");
-    // const tr = tbody.insertRow();
-    
 
-    var idSequence = 0;
+    var tbody = document.getElementById("tbody");
+    
+    tbody.innerText = "";
+
+    
 
     
     for (var i = 0; i < this.array.length ; i++){
         
-        const tr = tbody.insertRow();
 
+        const tr = tbody.insertRow();
+        
 
         // const id = tr.insertCell;
         // const name = tr.insertCell;
@@ -160,16 +162,18 @@ class List{
         // const status = tr.insertCell;
         // const acoes = tr.insertCell;
 
-        tr.insertCell(0).innerText = idSequence;
+        tr.insertCell(0).innerText = this.id;
         tr.insertCell(1).innerText = this.array[i].name;
         tr.insertCell(2).innerText = this.array[i].semester1;
         tr.insertCell(3).innerText = this.array[i].semester2;
         tr.insertCell(4).innerText = this.array[i].avg;
         tr.insertCell(5).innerText = this.array[i].status;
         
-        idSequence++;
+        this.id++;
+        
 
-
+       
+        
         
         
     }
