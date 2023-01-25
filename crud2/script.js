@@ -2,12 +2,13 @@
 class List{
     constructor(){
         this.array = [];
+        this.id = 1;
 
     }
 
     save(){
         this.obj = {};
-        this.id = 1;
+        
 
         // this.index ;
 
@@ -154,25 +155,36 @@ class List{
         const tr = tbody.insertRow();
         
 
-        // const id = tr.insertCell;
-        // const name = tr.insertCell;
-        // const semester1 = tr.insertCell;
-        // const semester2 = tr.insertCell;
-        // const avg = tr.insertCell;
-        // const status = tr.insertCell;
-        // const acoes = tr.insertCell;
-
-        tr.insertCell(0).innerText = this.id;
-        tr.insertCell(1).innerText = this.array[i].name;
-        tr.insertCell(2).innerText = this.array[i].semester1;
-        tr.insertCell(3).innerText = this.array[i].semester2;
-        tr.insertCell(4).innerText = this.array[i].avg;
-        tr.insertCell(5).innerText = this.array[i].status;
         
-        this.id++;
-        
+         const id = tr.insertCell();
+         const name = tr.insertCell();
+         const semester1 = tr.insertCell();
+         const semester2 = tr.insertCell();
+         const avg = tr.insertCell();
+         const status = tr.insertCell();
+         const acoes = tr.insertCell();
 
+
+        id.innerText = this.id;
+        name.innerText = this.array[i].name;
+        semester1.innerText = this.array[i].semester1;
+        semester2.innerText = this.array[i].semester2;
+        avg.innerText = this.array[i].avg;
+        status.innerText = this.array[i].status;
+
+        const imgDel = document.createElement("img");
+        imgDel.src = "img/trash.png";
+        imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[i.id])+")")
+        
+        const imgEdit = document.createElement("img");
+        imgEdit.src = "img/edit (2).png";
+        imgEdit.setAttribute("onclick", "list.delete(qtdR)");
        
+        
+        acoes.appendChild(imgDel);
+        acoes.appendChild(imgEdit);
+        
+
         
         
         
