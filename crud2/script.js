@@ -3,14 +3,12 @@ class List{
     constructor(){
         this.array = [];
         this.id = 1;
+        this.returnList = null;
 
     }
 
     save(){
         this.obj = {};
-        
-
-        // this.index ;
 
         const student = this.getData(this.obj);
 
@@ -22,17 +20,18 @@ class List{
         if(this.verifyData(studentData)){
             this.insertArray(studentData);
 
-            this.insertTable(studentData);
+            this.insertTable();
 
 
         }
+
         this.cancel();
+       
         
-
         
         }
 
-        // this.cancel();
+        
       
 
 
@@ -61,7 +60,7 @@ class List{
             verify = false;
              
         }
-
+        obj.id = this.id;
         obj.name = name;
         obj.semester1 = semester1;
         obj.semester2 = semester2;
@@ -139,7 +138,7 @@ class List{
 
     }
 
-    insertTable(obj){
+    insertTable(){
 
 
     var tbody = document.getElementById("tbody");
@@ -165,7 +164,7 @@ class List{
          const acoes = tr.insertCell();
 
 
-        id.innerText = this.id;
+        id.innerText = this.array[i].id;
         name.innerText = this.array[i].name;
         semester1.innerText = this.array[i].semester1;
         semester2.innerText = this.array[i].semester2;
@@ -174,7 +173,7 @@ class List{
 
         const imgDel = document.createElement("img");
         imgDel.src = "img/trash.png";
-        imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[i.id])+")")
+        imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[i].id)+")")
         
         const imgEdit = document.createElement("img");
         imgEdit.src = "img/edit (2).png";
@@ -183,51 +182,38 @@ class List{
         
         acoes.appendChild(imgDel);
         acoes.appendChild(imgEdit);
-        
 
-        
-        
-        
+        this.idSum()
+    }
     }
 
+    idSum(){
+        this.id = this.array[this.array.length-1].id + 1
+    }
+    
     
 
+    delete(id){
+        for(var i = 0; i< this.array.length; i++){
 
+            if(this.array[i].id == id){
+                
+                
+                if(confirm("deseja excluir o ID "+id+" da lista?")){
+                this.array.splice(i,1);
 
-    // const id = tr.insertCell();
-    // const name = tr.insertCell();
-    // const semester1 = tr.insertCell();
-    // const semester2 = tr.insertCell();
-    // const avg = tr.insertCell();
-    // const status = tr.insertCell();
-    // const acoes = tr.insertCell();
+                this.insertTable()
+                }
+            
+                
+            }
 
-    // id.innerText = qtdR
-    // name.innerText = obj.name;
-    // semester1.innerText = obj.semester1;
-    // semester2.innerText = obj.semester2;
-    // avg.innerText = obj.avg;
-    // status.innerText = obj.status;
-
-    // const imgDel = document.createElement("img");
-    // imgDel.src = "img/trash.png";
-    // imgDel.setAttribute("onclick", "list.delete("+JSON.stringify(this.array[this.index])+")");
-
-    // const imgEdit = document.createElement("img");
-    // imgEdit.src = "img/edit (2).png";
-    // imgEdit.setAttribute("onclick", "list.delete(qtdR)");
-
-    // acoes.appendChild(imgDel);
-    // acoes.appendChild(imgEdit);
-    
+        }
 
     }
 
-    delete(obj){
+    editId(){
         
-
-    
-
     }
 
     cancel(){
