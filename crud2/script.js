@@ -4,6 +4,7 @@ class List{
         this.array = [];
         this.id = 1;
         this.returnList = null;
+        this.editId = null
 
     }
 
@@ -12,7 +13,11 @@ class List{
 
         const student = this.getData(this.obj);
 
+        
+
         if(student){
+
+        if(this.editId == null){
 
         const objStudent = this.insertMedia(student);
         const studentData = this.insertStatus(objStudent);
@@ -24,18 +29,23 @@ class List{
 
 
         }
+    }
+
+        else{
+
+            this.att(this.editId);
+
+            this.insertTable();
+
+            this.editId = null;
+        }
+    }
 
         this.cancel();
        
-        
+    
         
         }
-
-        
-      
-
-
-    }
 
     getData(obj){
 
@@ -139,7 +149,8 @@ class List{
     }
 
     insertTable(){
-
+    
+    document.getElementById("btn-main").innerText = "Salvar";
 
     var tbody = document.getElementById("tbody");
     
@@ -177,7 +188,7 @@ class List{
         
         const imgEdit = document.createElement("img");
         imgEdit.src = "img/edit (2).png";
-        imgEdit.setAttribute("onclick", "list.delete(qtdR)");
+        imgEdit.setAttribute("onclick", "list.editImg("+JSON.stringify(this.array[i])+")");
        
         
         acoes.appendChild(imgDel);
@@ -212,8 +223,35 @@ class List{
 
     }
 
-    editId(){
+    editImg(i){
         
+        document.getElementById("student-name").value = i.name;
+        document.getElementById("semester1").value = i.semester1;
+        document.getElementById("semester2").value = i.semester2;
+
+        
+
+        document.getElementById("btn-main").innerText = "Atualizar";
+
+
+        this.editId = i.id;
+
+    }
+
+    att(id){
+        for(var i = 0; i < this.array.length; i++){
+            if(this.array[i].id == id){
+                
+               this.array[i].name = document.getElementById("student-name").value; 
+               this.array[i].semester1 = document.getElementById("semester1").value; 
+               this.array[i].semester2 = document.getElementById("semester2").value; 
+
+            }
+
+
+        }
+
+        // this.insertTable();
     }
 
     cancel(){
