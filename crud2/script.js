@@ -26,7 +26,7 @@ class List{
 
             this.insertTable();
 
-
+            this.cancel();
         }
     }
 
@@ -37,10 +37,13 @@ class List{
             this.insertTable();
 
             this.editId = null;
+            
+            this.cancel();
         }
     }
 
-        this.cancel();
+        // this.cancel();
+        
        
     
         
@@ -238,17 +241,57 @@ class List{
     }
 
     att(id){
-        for(var i = 0; i < this.array.length; i++){
-            if(this.array[i].id == id){
-                
-               this.array[i].name = document.getElementById("student-name").value; 
-               this.array[i].semester1 = document.getElementById("semester1").value; 
-               this.array[i].semester2 = document.getElementById("semester2").value; 
+        const array1 = [];
+        var aceppt = true;
 
+        const name = document.getElementById("student-name").value; 
+        const semester1 = document.getElementById("semester1").value; 
+        const semester2 = document.getElementById("semester2").value; 
+
+        array1.push(name,semester1,semester2);
+
+        console.log(array1);
+
+        for(var i = 0; i < array1.length; i++){
+
+            if(array1[i] == ""){
+                alert("Os campos não estão preenchido corretamente!");
+
+                aceppt = false;
+                this.cancel();
+                this.editId = null
+
+                console.log("rodou!");
             }
 
-
         }
+        
+        if(aceppt){
+            for(var i = 0; i < this.array.length; i++){
+                if(this.array[i].id == id){
+                    
+                   this.array[i].name = name;
+                   this.array[i].semester1 = semester1;
+                   this.array[i].semester2 = semester2; 
+
+                   this.insertMedia(this.array[i]);
+                   this.insertStatus(this.array[i]);
+    
+                }
+        }
+    }
+
+        // for(var i = 0; i < this.array.length; i++){
+        //     if(this.array[i].id == id){
+                
+        //        this.array[i].name = name;
+        //        this.array[i].semester1 = semester1;
+        //        this.array[i].semester2 = semester2; 
+
+        //     }
+
+
+        // }
 
         // this.insertTable();
     }
