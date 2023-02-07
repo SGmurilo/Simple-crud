@@ -1,4 +1,3 @@
-
 class List{
     constructor(){
         this.array = [];
@@ -268,3 +267,4 @@ class List{
 
 }
 const list = new List();
+
