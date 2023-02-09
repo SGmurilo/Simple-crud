@@ -2,7 +2,6 @@ class List{
     constructor(){
         this.array = [];
         this.id = 1;
-        this.returnList = null;
         this.editId = null
 
     }
@@ -41,10 +40,9 @@ class List{
             this.cancel();
         }
     }
-
-        // this.cancel();
         
-       
+        
+       console.log(this.array);
     
         
         }
@@ -250,16 +248,12 @@ class List{
 
         array1.push(name,semester1,semester2);
 
-        console.log(array1);
-
         for(var i = 0; i < array1.length; i++){
 
             if(array1[i] == ""){
                 alert("Os campos não estão preenchido corretamente!");
 
                 aceppt = false;
-                this.cancel();
-                this.editId = null
 
                 console.log("rodou!");
             }
@@ -281,19 +275,7 @@ class List{
         }
     }
 
-        // for(var i = 0; i < this.array.length; i++){
-        //     if(this.array[i].id == id){
-                
-        //        this.array[i].name = name;
-        //        this.array[i].semester1 = semester1;
-        //        this.array[i].semester2 = semester2; 
 
-        //     }
-
-
-        // }
-
-        // this.insertTable();
     }
 
     cancel(){
@@ -303,6 +285,30 @@ class List{
           document.getElementById("semester2").value = "";
 
     }
+
+    storage(){
+        const reform = JSON.stringify(this.array)
+
+        const local = localStorage.setItem( "array",reform);
+
+        alert("Sua lista foi salva!");
+
+
+    }
+
+    reList(){
+
+        const listAgain = localStorage.getItem("array");
+        const newArray = JSON.parse(listAgain)
+
+        this.array = newArray;
+         
+        this.insertTable()
+
+        alert("Lista recuperada!");
+
+    }
+
 
     
 
